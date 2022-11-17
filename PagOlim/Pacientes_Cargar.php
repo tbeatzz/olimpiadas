@@ -5,24 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-/* Chrome, Safari, Edge, Opera */
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-/* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
 }
 </style>
     <link rel="stylesheet" href="CSS.css">
-    <title>Pagina hospital.</title>
+    <title>Carga de Pacientes.</title>
 </head>
 <body>
-<div id="contenido">
+<div id="contenido"> 
         <form action="" method="POST" class="register">
+        <h2>Cargar Pacientes.</h2>
             <div class="input-line">
                 <label for="name" class="label-form">Nombre</label>
                 <input type="text" name="name" id="name" class="input-field">
