@@ -113,13 +113,19 @@ body {
     color: black;
   }
   &__bloque {
-    padding: 1em;
     background-color: #f5f5f5;
     border-radius: 2em;
   }
   &__btn {
     padding-top: 2em;
     width: 100%;
+  }
+  .login-input {
+    border: solid black 1px;
+    height: 2.5em;
+    border-radius: 2em;
+    outline: none;
+    text-align: center;
   }
 
   &-button {

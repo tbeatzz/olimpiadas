@@ -10,6 +10,9 @@ if (!isset($usuario)){
   header("location: ./php/login.php");
 }
 
+
+
+
 $query = "SELECT usuarios.user_name, rangos.rango_nombre FROM `usuarios` INNER JOIN rangos ON usuarios.user_type = rangos.user_type WHERE user_name ='$usuario'";
 
 $res = $conexion->query($query);
@@ -17,6 +20,7 @@ $res = $conexion->query($query);
 while($fila =$res ->fetch_assoc()){
   $userWelcome = $fila ['rango_nombre'];
 }
+
 
 ?>
 <!DOCTYPE html>
@@ -49,7 +53,7 @@ while($fila =$res ->fetch_assoc()){
 
     <div class="sidebar active">
       <h1 class="sidebar__h1 logo">
-        <a href="../index.php">
+        <a href="./index.php">
           <img
             class="logo-normal"
             src="../img/logo i_hospital.svg"
@@ -64,7 +68,7 @@ while($fila =$res ->fetch_assoc()){
       </h1>
       <ul class="sidebar__ul">
         <li class="sidebar__li">
-          <a href="#">
+          <a href="../index.php">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -190,13 +194,13 @@ while($fila =$res ->fetch_assoc()){
                 name="caja_busqueda"
                 id="caja_busqueda"
                 class="table__input"
-                placeholder="Buscar un paciente"
+                placeholder="Buscar personal    "
                 aria-label="Search"
               />
             </div>
           </div>
           <div class="table__button">
-            <a href="./paciente_add.php"> Cargar un paciente </a>
+            <a href="./paciente_add.php"> Cargar personal </a>
           </div>
         </div>
         <div class="table__wrapper" id="datos"></div>
@@ -213,7 +217,7 @@ while($fila =$res ->fetch_assoc()){
 			$(buscar_datos());
 			function buscar_datos(consulta){ 
 				$.ajax({
-					url: './paciente_search.php', 
+					url: './personal_search.php', 
 					type: 'POST', 
 					dataType: 'html', 
 					data: {consulta: consulta},

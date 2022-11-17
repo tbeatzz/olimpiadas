@@ -5,16 +5,12 @@ include("./conexion.php");
 
 $salida = "";
 
-$query_salida = "SELECT pacientes.paciente_id, pacientes.paciente_nombre, pacientes.paciente_apellido, pacientes.paciente_peso, pacientes.paciente_altura,pacientes.paciente_diagnostico, pacientes.paciente_dni, enfermeros.enfermero_nombre ,pacientes.enfermero_id
-FROM pacientes
-INNER JOIN enfermeros on pacientes.enfermero_id = enfermeros.enfermero_id";
+$query_salida = "SELECT * FROM usuarios";
 
 if(isset($_POST['consulta'])){
     $q = $conexion ->real_escape_string($_POST['consulta']);
-    $query_salida= "SELECT pacientes.paciente_id,pacientes.paciente_nombre, pacientes.paciente_apellido, pacientes.paciente_peso, pacientes.paciente_altura,pacientes.paciente_diagnostico, pacientes.paciente_dni, enfermeros.enfermero_nombre, pacientes.enfermero_id
-    FROM pacientes
-    INNER JOIN enfermeros on pacientes.enfermero_id = enfermeros.enfermero_id
-WHERE pacientes.paciente_nombre LIKE '%".$q."%' OR pacientes.paciente_apellido LIKE '%".$q."%' OR pacientes.paciente_peso LIKE '%".$q."%' OR  pacientes.paciente_altura LIKE '%".$q."%' OR pacientes.paciente_diagnostico LIKE '%".$q."%' OR pacientes.paciente_dni LIKE '%".$q."%' OR enfermeros.enfermero_nombre LIKE '%".$q."%'";
+    $query_salida= "SELECT * FROM enfermeros
+WHERE enfermeros LIKE '%".$q."%' OR pacientes.paciente_apellido LIKE '%".$q."%' OR pacientes.paciente_peso LIKE '%".$q."%' OR  pacientes.paciente_altura LIKE '%".$q."%' OR pacientes.paciente_diagnostico LIKE '%".$q."%' OR pacientes.paciente_dni LIKE '%".$q."%' OR enfermeros.enfermero_nombre LIKE '%".$q."%'";
     
 }   
 
@@ -74,7 +70,7 @@ if($res->num_rows>0){
               </svg></a>
                 <script>function newwin".$fila['paciente_id']."(){
                     Swal.fire({
-                        title: '<strong>Eliminar paciente</strong>',
+                        title: '<strong>Eliminar personal</strong>',
                         icon: 'warning',
                         html:`¿Desea eliminar este paciente y todos sus datos?`,
                         showCloseButton: true,

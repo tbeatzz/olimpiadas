@@ -417,13 +417,19 @@ body.sidebar_open {
   color: black;
 }
 .login__bloque {
-  padding: 1em;
   background-color: #f5f5f5;
   border-radius: 2em;
 }
 .login__btn {
   padding-top: 2em;
   width: 100%;
+}
+.login .login-input {
+  border: solid black 1px;
+  height: 2.5em;
+  border-radius: 2em;
+  outline: none;
+  text-align: center;
 }
 .login-button {
   cursor: pointer;
