@@ -1,0 +1,62 @@
+
+
+WEB{
+	1-
+	buscar mapa de hospital web 
+	sacar el map de las imagenes para los link
+	con $_get crear la zona para cada sala
+	
+	2-
+	
+	
+	Formulario de pacientes
+	style acorde a la pagina principal
+	tabla en la bd con los enfermeros
+	mostrar con select todo los enfermeros
+	
+	
+	3--
+	
+	Edicion de los usuarios por parte de los administradores
+	Mostrar en una tabla todos los usuarios y la opcion de deitar y borrar SOLO PARA LOS ADMINISTRADORESlos 
+	usuarios lo pueden ver y CIERRTOS datos
+	
+	4-
+	Seccion "LLAMADOS"
+	llamados con fecha y hora y estado
+	
+	5-
+	
+	6-
+	seccion que muestre graficos con alguna funcion de js o php mediante los datos que tenga
+	
+	7- tabla con los datos y filtros mediante consultas sql
+	
+	select campo campo from asasd
+	
+	8 - exportes pdf con javascirpt o php
+	
+	
+	
+Arduino
+
+1-{
+Una alarma SONORA que alerte A toda la SALA
+
+arduino con un pulsador y mando a distancia que active la alarma EN LA SALA
+}
+
+2-{
+Mostrar en displays de la sala donde se requiere ayuda 
+
+traer de la base deed datos de esa sala el nombre del quirofano y mostrar el numero del quirofano 
+mostrarlo en display
+}
+
+3{
+En la web alertar con una notificacion o modal donde se requiere ayuda
+}
+
+5 y 4 {
+	mostrar en otros lugares la alerta
+}
