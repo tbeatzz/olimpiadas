@@ -1,10 +1,34 @@
+<?php
+include("./conexion.php");
+session_start();
+
+
+$usuario = $_SESSION['user_name'];
+
+
+
+
+
+
+$query = "SELECT usuarios.user_name, rangos.rango_nombre FROM `usuarios` INNER JOIN rangos ON usuarios.user_type = rangos.user_type WHERE user_name ='$usuario'";
+
+$res = $conexion->query($query);
+
+while($fila =$res ->fetch_assoc()){
+  $userWelcome = $fila ['rango_nombre'];
+}
+
+if (!isset($usuario)){
+  header("location: ./php/login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sistema Hospitalario | Inicio</title>
+    <title>Sistema Hospitalario | Pacientes</title>
     <!-- css -->
     <link rel="stylesheet" href="../css/app.css" />
     <!-- Scripts -->
@@ -18,13 +42,13 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body class="body sidebar_open">
-    <!-- <div class="preload">
+    <div class="preload">
       <img
         src="../img/logo i_hospital.svg"
         alt="Logo i_hospital"
         class="preload__img"
       />
-    </div> -->
+    </div>
 
     <div class="sidebar active">
       <h1 class="sidebar__h1 logo">
@@ -154,7 +178,7 @@
           </svg>
         </div>
         <div class="header__welcome">
-          <span class="header__text">Bienvenido, Usuario Laslasa</span>
+          <span class="header__text">Bienvenido, <?php echo $userWelcome;?></span>
         </div>
       </div>
     </header>
@@ -178,10 +202,98 @@
             <a href="./paciente_add.php"> Cargar un paciente </a>
           </div>
         </div>
-
-        <div id="datos">
-
-        </div>
+        <?php 
+          if ($userWelcome == 'administrador'){
+            echo '<div class="table__wrapper" id="datos"</div>';
+          }else{
+            echo '<div class="table__wrapper ">
+            <table class="table__fl blur">
+                <thead>
+                <tr>
+                    <th>Header 1</th>
+                    <th>Header 2</th>
+                    <th>Header 3</th>
+                    <th>Header 4</th>
+                    <th>Header 5</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Content 1</td>
+                    <td>Content 1</td>
+                    <td>Content 1</td>
+                    <td>Content 1</td>
+                    <td>Content 1</td>
+                </tr>
+                <tr>
+                    <td>Content 2</td>
+                    <td>Content 2</td>
+                    <td>Content 2</td>
+                    <td>Content 2</td>
+                    <td>Content 2</td>
+                </tr>
+                <tr>
+                    <td>Content 3</td>
+                    <td>Content 3</td>
+                    <td>Content 3</td>
+                    <td>Content 3</td>
+                    <td>Content 3</td>
+                </tr>
+                <tr>
+                    <td>Content 4</td>
+                    <td>Content 4</td>
+                    <td>Content 4</td>
+                    <td>Content 4</td>
+                    <td>Content 4</td>
+                </tr>
+                <tr>
+                    <td>Content 5</td>
+                    <td>Content 5</td>
+                    <td>Content 5</td>
+                    <td>Content 5</td>
+                    <td>Content 5</td>
+                </tr>
+                <tr>
+                    <td>Content 6</td>
+                    <td>Content 6</td>
+                    <td>Content 6</td>
+                    <td>Content 6</td>
+                    <td>Content 6</td>
+                </tr>
+                <tr>
+                    <td>Content 7</td>
+                    <td>Content 7</td>
+                    <td>Content 7</td>
+                    <td>Content 7</td>
+                    <td>Content 7</td>
+                </tr>
+                <tr>
+                    <td>Content 8</td>
+                    <td>Content 8</td>
+                    <td>Content 8</td>
+                    <td>Content 8</td>
+                    <td>Content 8</td>
+                </tr>
+                <tr>
+                    <td>Content 9</td>
+                    <td>Content 9</td>
+                    <td>Content 9</td>
+                    <td>Content 9</td>
+                    <td>Content 9</td>
+                </tr>
+                <tr>
+                    <td>Content 10</td>
+                    <td>Content 10</td>
+                    <td>Content 10</td>
+                    <td>Content 10</td>
+                    <td>Content 10</td>
+                </tr>
+                <tbody>
+            </table>
+        </div>';
+          }
+        ?>
+        
      
       </div>
     </section>

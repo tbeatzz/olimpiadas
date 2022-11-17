@@ -203,6 +203,9 @@ body {
     gap: 1em;
     font-size: 1em;
   }
+  .logo {
+    color: rgba(230, 230, 230, 0.9);
+  }
   .logo-mobile {
     display: none;
     @include phone(596px) {
@@ -331,6 +334,10 @@ body {
   }
 
   &__fl {
+    &.blur {
+      filter: blur(7px);
+      pointer-events: none;
+    }
     border-radius: 5px;
     font-size: 12px;
     font-weight: normal;
@@ -439,5 +446,6 @@ body {
   .botones {
     width: 100%;
     @include flex(flex, row, nowrap, center, center);
+    gap: 2em;
   }
 }

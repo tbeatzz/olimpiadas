@@ -1,3 +1,27 @@
+<?php
+include("./php/conexion.php");
+session_start();
+
+
+$usuario = $_SESSION['user_name'];
+
+
+
+
+
+
+$query = "SELECT usuarios.user_name, rangos.rango_nombre FROM `usuarios` INNER JOIN rangos ON usuarios.user_type = rangos.user_type WHERE user_name ='$usuario'";
+
+$res = $conexion->query($query);
+
+while($fila =$res ->fetch_assoc()){
+  $userWelcome = $fila ['rango_nombre'];
+}
+
+if (!isset($usuario)){
+  header("location: ./php/login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -6,37 +30,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sistema Hospitalario | Inicio</title>
     <!-- css -->
-    <link rel="stylesheet" href="../css/app.css" />
+    <link rel="stylesheet" href="./css/app.css" />
     <!-- Scripts -->
     <script
       src="https://code.jquery.com/jquery-3.6.1.js"
       integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
       crossorigin="anonymous"
     ></script>
-    <script defer src="../js/app.js"></script>
+    <script defer src="./js/app.js"></script>
     <!-- Alertas -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body class="body sidebar_open">
-    <!-- <div class="preload">
+    <div class="preload">
       <img
-        src="../img/logo i_hospital.svg"
+        src="./img/logo i_hospital.svg"
         alt="Logo i_hospital"
         class="preload__img"
       />
-    </div> -->
+    </div>
 
     <div class="sidebar active">
       <h1 class="sidebar__h1 logo">
         <a href="./index.php">
           <img
             class="logo-normal"
-            src="../img/logo i_hospital.svg"
+            src="./img/logo i_hospital.svg"
             alt="Logo i_hospital"
           />
           <img
             class="logo-mobile"
-            src="../img/hospital logo.svg"
+            src="./img/hospital logo.svg"
             alt="logo i_hospital"
           />
         </a>
@@ -59,7 +83,7 @@
           </a>
         </li>
         <li class="sidebar__li">
-          <a href="./pacientes.html">
+          <a href="./php/pacientes.php">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive" viewBox="0 0 16 16">
               <path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1V2zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5H2zm13-3H1v2h14V2zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
             </svg>
@@ -85,7 +109,7 @@
         </li>
       </ul>
       <h2 class="sidebar__h3 logo">
-        <a href="./login_logout.php">
+        <a href="./php/login_logout.php">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -126,7 +150,7 @@
           </svg>
         </div>
         <div class="header__welcome">
-          <span class="header__text">Bienvenido, Usuario Laslasa</span>
+          <span class="header__text">Bienvenido, <?php echo $userWelcome;?></span>
         </div>
       </div>
     </header>

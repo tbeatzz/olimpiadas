@@ -562,6 +562,9 @@ body.sidebar_open {
   gap: 1em;
   font-size: 1em;
 }
+.sidebar .logo {
+  color: rgba(230, 230, 230, 0.9);
+}
 .sidebar .logo-mobile {
   display: none;
 }
@@ -776,6 +779,11 @@ body.sidebar_open {
   white-space: nowrap;
   background-color: white;
 }
+.table__fl.blur {
+  -webkit-filter: blur(7px);
+          filter: blur(7px);
+  pointer-events: none;
+}
 .table__fl td, .table__fl th {
   text-align: center;
   padding: 8px;
@@ -874,4 +882,5 @@ body.sidebar_open {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: 2em;
 }
