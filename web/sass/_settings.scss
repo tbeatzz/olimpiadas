@@ -12,7 +12,29 @@ $text-size: (
   "subtitle": 2em,
   "title": 3em,
 );
-$gradients: (
+$gradients: ();
 
-);
-
+@keyframes preload {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes preloadlogo {
+  0% {
+    transform: scale(0);
+  }
+  25% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}

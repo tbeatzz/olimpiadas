@@ -21,3 +21,10 @@
     @content;
   }
 }
+
+@mixin phone2($medida: 480px) {
+  //480px es valor predeterminado, si no se indica se toma este
+  @media screen and (max-height: $medida) {
+    @content;
+  }
+}
