@@ -1,0 +1,19 @@
+#include <LiquidCrystal.h>
+LiquidCrystal lcd(7, 8, 9, 10, 11, 12);  //Pines donde va conectada la pantalla (RS, E, D4, D5, D6, D7)
+unsigned long tiempo_anterior = 0;
+int periodo = 600;    //Tiempo para desplazamiento
+void setup() {
+  lcd.begin(16, 2);   //Inicializamos la pantalla
+}
+void loop() {
+  //Mensaje 1
+  lcd.setCursor(0, 0);          //Posiciona el cursor en la columna 0, fila 0
+  lcd.write("Prueba 1:");      //Escribe el mensaje
+  
+  lcd.setCursor(0, 1);         //Posiciona el cursor en la columna 0, fila 1
+  lcd.write("Hola mundo!");    //Escribe el mensaje
+  if (millis() &gt; tiempo_anterior + periodo){
+    lcd.scrollDisplayRight();     //Hace scroll o desplazamiento a la derecha cada 600 milisegundos
+    tiempo_anterior = millis();
+  }
+}
